@@ -1,0 +1,40 @@
+@import "filter";
+@import "checkbox";
+@import "input";
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+main {
+
+    min-height: 400px;
+    color: #343a40;
+    float: left;
+    width: calc(100% - 330px);
+
+}
+
+aside {
+    float: right;
+    width: 300px;
+    color: #ffbdbd;
+    will-change: min-height;
+    border:solid 1px;
+}
+
+
+.container {
+    padding-bottom: 35px;
+    padding-top: 30px;
+}
+.container {
+    width: 750px;
+}
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}

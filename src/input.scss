@@ -1,0 +1,62 @@
+.c-form-group.c-form-group--btn input {
+
+}
+
+.sdl-filter-input {
+  display: block;
+  width: 100%;
+  padding: 6px 40px 10px 10px;
+  min-height: 50px;
+  border: 3px solid #dff1ff;
+  border-right: none;
+  background-color: #fff;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.sdl-filter-input:focus {
+  border-color: #b0dcff;
+}
+
+.sdl-form-group-btn {
+  cursor: pointer;
+  border: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background-color: #41a0e9;
+}
+
+.sdl-form-group {
+  position: relative;
+  padding-right: 50px;
+}
+
+.sdl-form-group-btn::before {
+  content: '';
+  display: block;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url("data:image/svg+xml,%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 240.823 240.823' style='enable-background:new 0 0 240.823 240.823;fill:#fff' xml:space='preserve'%3E%3Cpath id='Chevron_Right_1_' d='M183.189,111.816L74.892,3.555c-4.752-4.74-12.451-4.74-17.215,0c-4.752,4.74-4.752,12.439,0,17.179 l99.707,99.671l-99.695,99.671c-4.752,4.74-4.752,12.439,0,17.191c4.752,4.74,12.463,4.74,17.215,0l108.297-108.261 C187.881,124.315,187.881,116.495,183.189,111.816z'/%3E%3C/svg%3E");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+}
+
+
+.sdl-form-group-label {
+  position: absolute;
+  right: 62px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #939393;
+}

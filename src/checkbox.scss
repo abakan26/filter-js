@@ -1,0 +1,37 @@
+
+.sdl-checkbox-custom {
+  display: inline-block;
+  vertical-align: middle;
+  width: 30px;
+  height: 30px;
+  margin-top: -3px;
+  margin-right: 10px;
+  background-color: #dff1ff;
+  border: 3px solid rgb(223, 241, 255);
+  position: relative;
+  text-align: center;
+}
+
+.sdl-checkbox-custom:hover {
+  border-color: #9fd1f7;
+  cursor: pointer;
+}
+
+.sdl-checkbox {
+  display: none;
+}
+
+.sdl-checkbox-text {
+  font-size: 16px;
+  color: #222;
+}
+
+
+.sdl-filter-item {
+  margin-bottom: 13px;
+}
+
+.sdl-checkbox:checked + .sdl-checkbox-custom {
+  background-color: #fff6a8;
+  border-color: #fff6a8;
+}

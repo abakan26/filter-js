@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div class="container">
+    <main>
+
+    </main>
+    <aside>
+        <div class="sdl-filter">
+            <span class="sdl-filter-btn"></span>
+
+            <div id="sdl-modal-main-filter" tabindex="-1" role="dialog" aria-labelledby="modal-main-filter"
+                 class="sdl-filter-modal">
+                <div class="sdl-filter-content">
+                    <div class="sdl-filter-offers">найдено: 16 компаний</div>
+
+                    <!-- Поиск по тегу: title START-->
+                    <div class="sdl-filter-section">
+                        <div class="sdl-filter-title">Название МФО</div>
+                        <div class="sdl-filter-item">
+                            <div class="sdl-form-group">
+                                <label for="company-name">
+                                    <input type="text" id="company-name" name="company-name"
+                                           placeholder="" class="sdl-filter-input" autocomplete="off">
+                                </label>
+                                <button class="sdl-form-group-btn"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Поиск по тегу: title END-->
+
+                    <!-- Фильтер по тегу: credit_first START-->
+                    <div class="sdl-filter-section">
+                        <div class="sdl-filter-title">Сумма займа</div>
+                        <form>
+                            <div class="sdl-filter-item">
+                                <label>
+                                    <input type="checkbox" class="sdl-checkbox" value="100">
+                                    <span class="sdl-checkbox-custom"></span>
+                                    <span class="sdl-checkbox-text">100 грн</span>
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Фильтер по тегу: credit_first END-->
+
+                    <!-- Фильтер по виду займа: credit_first START-->
+                    <div class="sdl-filter-section">
+                        <div class="sdl-filter-title">Виды займов</div>
+                        <form>
+                            <div class="sdl-filter-item">
+                                <label class="c-checkbox c-checkbox--link">
+                                    <input type="checkbox" class="sdl-checkbox"
+                                           value="">
+                                    <span class="sdl-checkbox-custom"></span>
+                                    <span class="sdl-checkbox-text">Без залога</span>
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Фильтер по виду займа: credit_first END-->
+
+                    <div class="sdl-filter-section">
+                        <div class="sdl-filter-title">Срок займа</div>
+                        <form>
+                            <div class="sdl-filter-item">
+                                <div class="sdl-form-group">
+                                    <label for="amount">
+                                        <input type="text" id="amount" placeholder="10" class="sdl-filter-input">
+                                    </label>
+                                    <button type="submit" class="sdl-form-group-btn"></button>
+                                    <span class="sdl-form-group-label">Дней</span>
+                                </div>
+                            </div>
+                            <div class="sdl-filter-item">
+                                <label class="c-checkbox c-checkbox--link">
+                                    <input type="checkbox" class="sdl-checkbox"
+                                           value="">
+                                    <span class="sdl-checkbox-custom"></span>
+                                    <span class="sdl-checkbox-text">7 дней</span>
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="sdl-filter-section">
+                        <div class="sdl-filter-title">По городам</div>
+                        <form>
+                            <div class="sdl-filter-item">
+                                <label class="c-checkbox c-checkbox--link">
+                                    <input type="checkbox" class="sdl-checkbox"
+                                           value="">
+                                    <span class="sdl-checkbox-custom"></span>
+                                    <span class="sdl-checkbox-text">Киев</span>
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+</div>
+</body>
+</html>
