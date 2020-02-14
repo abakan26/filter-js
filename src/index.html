@@ -4181,7 +4181,7 @@
                     <!-- Фильтер по тегу: credit_first START-->
                     <div class="sdl-filter-section">
                         <div class="sdl-filter-title">Сумма займа</div>
-                        <form>
+                        <form class="sdl-checkbox-group" data-filter="loan_amount">
                             <div class="sdl-filter-item">
                                 <label>
                                     <input type="checkbox" class="sdl-checkbox" value="100">
@@ -4189,20 +4189,74 @@
                                     <span class="sdl-checkbox-text">100 грн</span>
                                 </label>
                             </div>
+                            <div class="sdl-filter-item">
+                                <label>
+                                    <input type="checkbox" class="sdl-checkbox" value="300">
+                                    <span class="sdl-checkbox-custom"></span>
+                                    <span class="sdl-checkbox-text">300 грн</span>
+                                </label>
+                            </div>
+                            <div class="sdl-filter-item">
+                                <label>
+                                    <input type="checkbox" class="sdl-checkbox" value="500">
+                                    <span class="sdl-checkbox-custom"></span>
+                                    <span class="sdl-checkbox-text">500 грн</span>
+                                </label>
+                            </div>
+                            <div class="sdl-filter-item">
+                                <label>
+                                    <input type="checkbox" class="sdl-checkbox" value="1000">
+                                    <span class="sdl-checkbox-custom"></span>
+                                    <span class="sdl-checkbox-text">1000 грн</span>
+                                </label>
+                            </div>
                         </form>
                     </div>
                     <!-- Фильтер по тегу: credit_first END-->
 
-                    <!-- Фильтер по виду займа: credit_first START-->
+                    <!-- Фильтер по способу получения займа: tags START-->
                     <div class="sdl-filter-section">
-                        <div class="sdl-filter-title">Виды займов</div>
-                        <form>
+                        <div class="sdl-filter-title">Способ получения</div>
+                        <form class="sdl-checkbox-group" data-filter="production_method">
                             <div class="sdl-filter-item">
                                 <label class="c-checkbox c-checkbox--link">
                                     <input type="checkbox" class="sdl-checkbox"
-                                           value="">
+                                           value="На карту">
+                                    <span class="sdl-checkbox-custom"></span>
+                                    <span class="sdl-checkbox-text">На карту</span>
+                                </label>
+                            </div>
+                            <div class="sdl-filter-item">
+                                <label class="c-checkbox c-checkbox--link">
+                                    <input type="checkbox" class="sdl-checkbox"
+                                           value="На счет">
+                                    <span class="sdl-checkbox-custom"></span>
+                                    <span class="sdl-checkbox-text">На счет</span>
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Фильтер по способу получения займа: tags END-->
+
+
+                    <!-- Фильтер по виду займа: credit_first START-->
+                    <div class="sdl-filter-section">
+                        <div class="sdl-filter-title">Виды займов</div>
+                        <form class="sdl-checkbox-group" data-filter="types_of_loans">
+                            <div class="sdl-filter-item">
+                                <label class="c-checkbox c-checkbox--link">
+                                    <input type="checkbox" class="sdl-checkbox"
+                                           value="Без залога">
                                     <span class="sdl-checkbox-custom"></span>
                                     <span class="sdl-checkbox-text">Без залога</span>
+                                </label>
+                            </div>
+                            <div class="sdl-filter-item">
+                                <label class="c-checkbox c-checkbox--link">
+                                    <input type="checkbox" class="sdl-checkbox"
+                                           value="Без отказа">
+                                    <span class="sdl-checkbox-custom"></span>
+                                    <span class="sdl-checkbox-text">Без отказа</span>
                                 </label>
                             </div>
                         </form>
@@ -4221,20 +4275,47 @@
                                     <span class="sdl-form-group-label">Дней</span>
                                 </div>
                             </div>
-                            <div class="sdl-filter-item">
-                                <label class="c-checkbox c-checkbox--link">
-                                    <input type="checkbox" class="sdl-checkbox"
-                                           value="">
-                                    <span class="sdl-checkbox-custom"></span>
-                                    <span class="sdl-checkbox-text">7 дней</span>
-                                </label>
-                            </div>
                         </form>
+                            <form class="sdl-checkbox-group" data-filter="loan_term">
+                                <div class="sdl-filter-item">
+                                    <label class="c-checkbox c-checkbox--link">
+                                        <input type="checkbox" class="sdl-checkbox"
+                                               value="">
+                                        <span class="sdl-checkbox-custom"></span>
+                                        <span class="sdl-checkbox-text">7 дней</span>
+                                    </label>
+                                </div>
+                                <div class="sdl-filter-item">
+                                    <label class="c-checkbox c-checkbox--link">
+                                        <input type="checkbox" class="sdl-checkbox"
+                                               value="">
+                                        <span class="sdl-checkbox-custom"></span>
+                                        <span class="sdl-checkbox-text">1 месяц</span>
+                                    </label>
+                                </div>
+                                <div class="sdl-filter-item">
+                                    <label class="c-checkbox c-checkbox--link">
+                                        <input type="checkbox" class="sdl-checkbox"
+                                               value="">
+                                        <span class="sdl-checkbox-custom"></span>
+                                        <span class="sdl-checkbox-text">2 месяца</span>
+                                    </label>
+                                </div>
+                                <div class="sdl-filter-item">
+                                    <label class="c-checkbox c-checkbox--link">
+                                        <input type="checkbox" class="sdl-checkbox"
+                                               value="">
+                                        <span class="sdl-checkbox-custom"></span>
+                                        <span class="sdl-checkbox-text">3 месяца</span>
+                                    </label>
+                                </div>
+                            </form>
+
                     </div>
 
                     <div class="sdl-filter-section">
                         <div class="sdl-filter-title">По городам</div>
-                        <form>
+                        <form class="sdl-checkbox-group" data-filter="city">
                             <div class="sdl-filter-item">
                                 <label class="c-checkbox c-checkbox--link">
                                     <input type="checkbox" class="sdl-checkbox"
