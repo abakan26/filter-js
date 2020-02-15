@@ -3,11 +3,7 @@ import {_S} from "./vanila";
 export class Checkbox {
         constructor(selector, callback) {
             this.state = {
-                "loan_amount" : ["all"],
-                "production_method" : ["all"],
-                "types_of_loans" : ["all"],
-                'loan_term' : ["all"],
-                "city" : ["all"]
+                "tags" : ["all"],
             };
             this.update_value = this.update_value.bind(this);
             _S("input[type='checkbox']").each(
@@ -19,7 +15,7 @@ export class Checkbox {
             let values = [];
             let parent_element = event.target.closest(".sdl-checkbox-group");
 
-            _S(parent_element).childrens("input[type='checkbox']").each(
+            _S(parent_element).find("input[type='checkbox']").each(
                 (checkbox) => {
                     if(checkbox.checked){
                         values.push(checkbox.value)

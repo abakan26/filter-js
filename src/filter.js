@@ -2,93 +2,47 @@ import {Checkbox} from "./checkbox";
 import {_S} from "./vanila";
 
 class Filter {
-    constructor() {
+    constructor(offers) {
+        this.offers = offers;
         this.update = this.update.bind(this);
         this.checkbox = new Checkbox("", this.update);
 
         this.is_loan_amount = this.is_loan_amount.bind(this);
 
-
-
-
-
-
-
-
-
     }
-    update(state){
-        console.log("update");
-        console.log(state);
-        _S(".offer").each(offer => this.is_loan_amount(offer, state))
+
+    update(state) {
+        let new_offers = this.offers.filter(offer => this.validate(offer, state));
+        console.log(new_offers)
     }
+
     is_loan_amount(offer, state) {
-        let range, credit_first;
-
-        if (state.loan_amount[0] !== "all"){
-            credit_first = _S(offer).find("[data-key='credit_first']").innerText;
-            range = credit_first.split("-");
-        }
+        return offer.tags ? offer.tags.some( elem => state.tags.includes(elem) ) : false;
     }
 
-    is_production_method(element) {
-
+    is_production_method(offer, state) {
+        return offer.tags ? offer.tags.some( elem => state.tags.includes(elem) ) : false;
     }
 
-    is_types_of_loans(element) {
-
+    is_types_of_loans(offer, state) {
+        return true;
     }
 
-    is_city(element) {
-
+    is_city(offer, state) {
+        return true;
     }
 
-    is_loan_term(element) {
-
+    is_loan_term(offer, state) {
+        return true;
     }
-    validate(element) {
-        return this.is_loan_amount(element)
-            && this.is_production_method(element)
-            && this.is_types_of_loans(element)
-            && this.is_loan_term(element)
-            && this.is_city(element);
-    }
-}
-new Filter();
-const offer = document.querySelectorAll(".offer");
-const credit = offer[1].querySelectorAll("[data-key='credit_first']");
 
-
-for (let a of offer) {
-    a.addEventListener('click', handlerClick)
-}
-
-function handlerClick(event) {
-    //console.log(this.style)
-}
-
-
-function _Shide(element) {
-    element.style.display = 'none';
-    return element;
-}
-
-function _Sshow() {
-    element.style.display = '';
-    return element;
-}
-
-Sfilter(offer);
-
-function Sfilter(arr, cond) {
-    for (let i of arr) {
-        //console.log(i.querySelector(("[data-key='credit_first']")).innerText)
+    validate(offer, state) {
+        return this.is_loan_amount(offer, state)
+            && this.is_production_method(offer, state)
+            && this.is_types_of_loans(offer, state)
+            && this.is_loan_term(offer, state)
+            && this.is_city(offer, state);
     }
 }
 
-
-
-
-
-
-
+new Filter(window.__ll_offers);
