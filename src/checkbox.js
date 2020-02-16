@@ -1,35 +1,56 @@
 import {_S} from "./vanila";
 
 export class Checkbox {
-        constructor(selector, callback) {
-            this.state = {
-                "tags" : ["all"],
-            };
-            this.update_value = this.update_value.bind(this);
-            _S("input[type='checkbox']").each(
-                checkbox => _S(checkbox).on('change', (event) => callback(this.update_value(event)))
-            )
-        }
+    constructor(filter_groups, callback) {
+        this.state = this.get_object_state(filter_groups);
+        this.update_value = this.update_value.bind(this);
+        _S(filter_groups).find("input[type='checkbox']").each(
+            checkbox => _S(checkbox).on('change', (event) => callback(this.update_value(event)))
+        )
+    }
 
-        update_value (event){
-            let values = [];
-            let parent_element = event.target.closest(".sdl-checkbox-group");
+    update_value(event) {
 
-            _S(parent_element).find("input[type='checkbox']").each(
-                (checkbox) => {
-                    if(checkbox.checked){
-                        values.push(checkbox.value)
-                    }
+        let values = [];
+        let parent_element = event.target.closest(".sdl-checkbox-group");
+
+        _S(parent_element).find("input[type='checkbox']").each(
+            (checkbox) => {
+                if (checkbox.checked) {
+                    values.push(checkbox.value)
                 }
-            );
-            if (values.length){
-                this.state[parent_element.dataset.filter] = values;
-
-            }else {
-                this.state[parent_element.dataset.filter] = ["all"];
             }
-            return this.state;
+        );
+
+        if (values.length) {
+            this.state[parent_element.dataset.filter].values = values;
+
+        } else {
+            this.state[parent_element.dataset.filter].values = ["all"];
         }
+        return this.state;
+    }
+
+    get_object_state(selector) {
+        let obj = {};
+        _S(selector).find("[data-filter-group='checkbox']").
+        find('input[type="checkbox"]').checked(false);
+        _S(selector).find("[data-filter-group='checkbox']")
+            .each( function (elem){
+                obj[elem.dataset.filter] = {
+                    "type" : elem.dataset.filterType,
+                    "values" : ["all"],
+                    "name" : elem.dataset.filterName
+                }
+            });
+        return obj;
+    }
+
 
 }
-
+//new Checkbox(".sdl-filter");
+/*
+* state = {
+*   "city" : {"type" : "set", "values" : ["all"]}
+* }
+* */

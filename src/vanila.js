@@ -24,6 +24,10 @@ class _Sdl {
         );
         return new _Sdl(elements);
     }
+    checked(bool){
+        this.elements.forEach(item => item.checked = bool);
+        return this;
+    }
     hide() {
         this.elements.each(
             element => element.style.display = 'none'

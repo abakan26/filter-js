@@ -2,12 +2,12 @@ import {Checkbox} from "./checkbox";
 import {_S} from "./vanila";
 
 class Filter {
-    constructor(offers) {
+    constructor(offers, filters) {
         this.offers = offers;
         this.update = this.update.bind(this);
-        this.checkbox = new Checkbox("", this.update);
+        this.checkbox = new Checkbox(filters, this.update);
 
-        this.is_loan_amount = this.is_loan_amount.bind(this);
+        this.check = this.check.bind(this);
 
     }
 
@@ -16,33 +16,39 @@ class Filter {
         console.log(new_offers)
     }
 
-    is_loan_amount(offer, state) {
-        return offer.tags ? offer.tags.some( elem => state.tags.includes(elem) ) : false;
+    check(offer, filter) {
+
+        if( filter.values.includes("all") ){
+            return true;
+        }
+        let checked = false;
+        if (filter.type === "set"){
+            checked = offer[filter.name] ? offer[filter.name].some( elem => filter.values.includes(elem) ) : false;
+        } else if (filter.type === "range"){
+            checked = this.include_range(offer[filter.name], filter.values);
+        }
+
+        return checked;
     }
 
-    is_production_method(offer, state) {
-        return offer.tags ? offer.tags.some( elem => state.tags.includes(elem) ) : false;
+    include_range(prerange, prevalues){
+        let range = prerange.split("-").map( elem => parseInt(elem) );
+        let values = prevalues.map( elem => parseInt(elem) );
+        return values.some( value => value >= range[0] && value <= range[1]);
     }
 
-    is_types_of_loans(offer, state) {
-        return true;
-    }
-
-    is_city(offer, state) {
-        return true;
-    }
-
-    is_loan_term(offer, state) {
-        return true;
-    }
 
     validate(offer, state) {
-        return this.is_loan_amount(offer, state)
-            && this.is_production_method(offer, state)
-            && this.is_types_of_loans(offer, state)
-            && this.is_loan_term(offer, state)
-            && this.is_city(offer, state);
+        let valid = true;
+        for (let filter in state){
+            if ( state.hasOwnProperty(filter) ) {
+                if ( ! this.check(offer, state[filter]) ){
+                    valid = false;
+                }
+            }
+        }
+        return valid;
     }
 }
 
-new Filter(window.__ll_offers);
+new Filter(window.__ll_offers, ".sdl-filter");

@@ -4181,7 +4181,7 @@
                     <!-- Фильтер по тегу: credit_first START-->
                     <div class="sdl-filter-section">
                         <div class="sdl-filter-title">Сумма займа</div>
-                        <form class="sdl-checkbox-group" data-filter="loan_amount">
+                        <form class="sdl-checkbox-group" data-filter-group="checkbox" data-filter="loan_amount" data-filter-type="range" data-filter-name="credit_first">
                             <div class="sdl-filter-item">
                                 <label>
                                     <input type="checkbox" class="sdl-checkbox" value="100">
@@ -4217,7 +4217,7 @@
                     <!-- Фильтер по способу получения займа: tags START-->
                     <div class="sdl-filter-section">
                         <div class="sdl-filter-title">Способ получения</div>
-                        <form class="sdl-checkbox-group" data-filter="tags">
+                        <form class="sdl-checkbox-group" data-filter-group="checkbox" data-filter="production_method" data-filter-type="set" data-filter-name="tags">
                             <div class="sdl-filter-item">
                                 <label class="c-checkbox c-checkbox--link">
                                     <input type="checkbox" class="sdl-checkbox"
@@ -4242,7 +4242,7 @@
                     <!-- Фильтер по виду займа: credit_first START-->
                     <div class="sdl-filter-section">
                         <div class="sdl-filter-title">Виды займов</div>
-                        <form class="sdl-checkbox-group" data-filter="types_of_loans">
+                        <form class="sdl-checkbox-group" data-filter-group="checkbox" data-filter="types_of_loans" data-filter-type="set" data-filter-name="tags">
                             <div class="sdl-filter-item">
                                 <label class="c-checkbox c-checkbox--link">
                                     <input type="checkbox" class="sdl-checkbox"
@@ -4265,18 +4265,18 @@
 
                     <div class="sdl-filter-section">
                         <div class="sdl-filter-title">Срок займа</div>
-                        <form>
-                            <div class="sdl-filter-item">
-                                <div class="sdl-form-group">
-                                    <label for="amount">
-                                        <input type="text" id="amount" placeholder="10" class="sdl-filter-input">
-                                    </label>
-                                    <button type="submit" class="sdl-form-group-btn"></button>
-                                    <span class="sdl-form-group-label">Дней</span>
-                                </div>
-                            </div>
-                        </form>
-                            <form class="sdl-checkbox-group" data-filter="loan_term">
+<!--                        <form>-->
+<!--                            <div class="sdl-filter-item">-->
+<!--                                <div class="sdl-form-group">-->
+<!--                                    <label for="amount">-->
+<!--                                        <input type="text" id="amount" placeholder="10" class="sdl-filter-input">-->
+<!--                                    </label>-->
+<!--                                    <button type="submit" class="sdl-form-group-btn"></button>-->
+<!--                                    <span class="sdl-form-group-label">Дней</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </form>-->
+                        <form class="sdl-checkbox-group" data-filter-group="checkbox" data-filter="loan_term" data-filter-type="range" data-filter-name="credit_time">
                                 <div class="sdl-filter-item">
                                     <label class="c-checkbox c-checkbox--link">
                                         <input type="checkbox" class="sdl-checkbox"
@@ -4315,7 +4315,7 @@
 
                     <div class="sdl-filter-section">
                         <div class="sdl-filter-title">По городам</div>
-                        <form class="sdl-checkbox-group" data-filter="city">
+                        <form class="sdl-checkbox-group" data-filter-group="checkbox" data-filter="city" data-filter-type="set" data-filter-name="tags">
                             <div class="sdl-filter-item">
                                 <label class="c-checkbox c-checkbox--link">
                                     <input type="checkbox" class="sdl-checkbox"
@@ -4324,7 +4324,7 @@
                                     <span class="sdl-checkbox-text">Киев</span>
                                 </label>
                             </div>
-                        </form>
+                        </form >
                     </div>
                 </div>
             </div>
