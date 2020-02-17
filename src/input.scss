@@ -7,7 +7,7 @@
   width: 100%;
   padding: 6px 40px 10px 10px;
   min-height: 50px;
-  border: 3px solid #dff1ff;
+  border: 3px solid #d4d4d4;
   border-right: none;
   background-color: #fff;
   font-size: 16px;
@@ -27,9 +27,11 @@
   display: inline-block;
   width: 50px;
   height: 50px;
-  background-color: #41a0e9;
+  background: #294dc6;
 }
-
+.sdl-form-group-btn:hover {
+  box-shadow: 0 16px 31px -16px #2f55d4;
+}
 .sdl-form-group {
   position: relative;
   padding-right: 50px;

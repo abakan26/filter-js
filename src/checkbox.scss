@@ -5,14 +5,14 @@
   height: 30px;
   margin-top: -3px;
   margin-right: 10px;
-  background-color: #dff1ff;
-  border: 3px solid rgb(223, 241, 255);
+  background-color: #d4d4d4a1;
+  border: 3px solid #d4d4d4;
   position: relative;
   text-align: center;
 }
 
 .sdl-checkbox-custom:hover {
-  border-color: #9fd1f7;
+  border-color: rgb(239, 206, 74);
   cursor: pointer;
 }
 
@@ -31,6 +31,6 @@
 }
 
 .sdl-checkbox:checked + .sdl-checkbox-custom {
-  background-color: #fff6a8;
-  border-color: #fff6a8;
+  background-color: rgb(239, 206, 74);
+  border-color: rgb(239, 206, 74);
 }

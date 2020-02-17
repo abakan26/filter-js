@@ -16,7 +16,7 @@ class Filter {
         let in_valid_offers = this.offers.filter(offer => !this.validate(offer, state));
 
         in_valid_offers.forEach(
-            elem => _S(`.offer[data-title='${elem.title}']`).animate(
+            elem => _S("#actual-list").find(`.offer[data-title='${elem.title}']`).animate(
                 function (progress, elem) {
                     let op = 1 - progress;
                     elem.style.opacity = op.toString();
@@ -28,7 +28,7 @@ class Filter {
             )
         );
         valid_offers.forEach(
-            elem => _S(`.offer[data-title='${elem.title}']`).animate(
+            elem => _S("#actual-list").find(`.offer[data-title='${elem.title}']`).animate(
                 function (progress, elem) {
 
                     elem.style.display = "";
@@ -39,6 +39,31 @@ class Filter {
                 }
             )
         );
+        valid_offers.forEach(
+            elem => _S("#other-list").find(`.offer[data-title='${elem.title}']`).animate(
+                function (progress, elem) {
+                    let op = 1 - progress;
+                    elem.style.opacity = op.toString();
+                    if (progress === 1){
+                        elem.style.display = "none";
+                    }
+
+                }
+            )
+        );
+        in_valid_offers.forEach(
+            elem => _S("#other-list").find(`.offer[data-title='${elem.title}']`).animate(
+                function (progress, elem) {
+
+                    elem.style.display = "";
+
+                    let op = progress;
+                    elem.style.opacity = op.toString();
+
+                }
+            )
+        );
+
     }
 
     check(offer, filter) {
@@ -75,6 +100,10 @@ class Filter {
         return valid;
     }
 }
+
+window.addEventListener("load",
+function () {
+
 
 new Filter(window.__ll_offers, ".sdl-filter");
 
@@ -169,13 +198,28 @@ inp.addEventListener("keydown", function(e) {
     }
 });
 document.getElementById("search-title").addEventListener("click", function (e) {
+    if (inp.value ){
+        let v = window.__ll_offers.filter(
+            r => inp.value === r.title
+        );
+        let iv = window.__ll_offers.filter(
+            r => inp.value !== r.title
+        );
+        _S("#actual-list").find(".offer").show();
+        iv.forEach(
+            elem =>{_S("#actual-list").find(`.offer[data-title='${elem.title}']`).hide();
+            }
+        );
+    }else {
+        _S("#actual-list").find(".offer").show();
+    }
 
-    let v = window.__ll_offers.filter(
-        r => inp.value === r.title
-    );
+    // v.forEach(
+    //     elem =>_S("#actual-list").find(`.offer[data-title='${elem.title}']`).show()
+    // );
+    // v.forEach(
+    //     elem =>_S("#other-list").find(`.offer[data-title='${elem.title}']`).hide()
+    // )
+});
 
-    _S(".offer").hide();
-    v.forEach(
-        elem => _S(`.offer[data-title='${elem.title}']`).show()
-    )
 });

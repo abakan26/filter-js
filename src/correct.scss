@@ -1,0 +1,14 @@
+@media (max-width: 767px) {
+  .sidebar-inner {
+    max-width: 420px!important;
+    margin: 0 auto!important;
+  }
+  aside {
+    transform: unset!important;
+    position: relative !important;
+    left: unset!important;
+    float: unset!important;
+    width: 100%!important;
+    max-width: unset!important;
+  }
+}

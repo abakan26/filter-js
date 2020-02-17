@@ -46,7 +46,7 @@
       font-size: 20px;
       font-weight: 700;
       line-height: 22px;
-      color: #222;
+      color: rgb(52, 58, 64);
     }
 
     &-item {
@@ -54,7 +54,7 @@
     }
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .sdl {
     &-filter-btn {
       display: none;
@@ -106,15 +106,12 @@
   color: #ffffff;
 }
 
-@media (min-width: 992px) {
+@media (max-width: 767px) {
   .sdl-filter-container {
-    width: 300px;
     color: #ffbdbd;
     will-change: min-height;
     border: solid 1px;
   }
-}
-@media (max-width: 991px) {
   .toggle-left {
     transform: translateX(-100%);
     position: relative;
@@ -131,14 +128,26 @@
 }
 .filter-aside{
   z-index: 777;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
 
 }
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .filter-aside {
     position: relative;
     float: right;
+    margin-top: 121px;
+  }
+  aside{
+    float: right;
+  }
+}
+@media (min-width: 768px) {
+  .sdl-filter-content {
+    border-radius: 10px;
+  }
+  .sdl-filter-container {
+    width: 300px;
   }
 }
