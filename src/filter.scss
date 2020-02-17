@@ -129,3 +129,16 @@
   transition: 350ms;
   z-index: 999;
 }
+.filter-aside{
+  z-index: 777;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}
+@media (min-width: 992px) {
+  .filter-aside {
+    position: relative;
+    float: right;
+  }
+}
