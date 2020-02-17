@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-</head>
+<link href="main.css" rel="stylesheet"></head>
 <body>
 <div class="container">
     <main>
@@ -4154,15 +4154,16 @@
             </article>
         </section>
     </main>
+    <!-- Кнопка открытия фильтра в адаптиве START -->   
     <span class="sdl-filter-btn"></span>
+    <!-- Кнопка открытия фильтра в адаптиве END -->  
     <aside>
+        <!-- Сам фильтр START -->   
         <div class="sdl-filter-container toggle-left ">
             <div class="sdl-filter">
                 <div id="sdl-modal-main-filter" tabindex="-1" role="dialog" aria-labelledby="modal-main-filter"
                      class="sdl-filter-modal">
                     <div class="sdl-filter-content">
-<!--                        <div class="sdl-filter-offers">найдено: 16 компаний</div>-->
-
                         <!-- Поиск по тегу: title START-->
                         <div class="sdl-filter-section">
                             <div class="sdl-filter-title">Название МФО</div>
@@ -4264,18 +4265,7 @@
                         <!-- Фильтер по виду займа: credit_first END-->
 
                         <div class="sdl-filter-section">
-                            <div class="sdl-filter-title">Срок займа</div>
-                            <!--                        <form>-->
-                            <!--                            <div class="sdl-filter-item">-->
-                            <!--                                <div class="sdl-form-group">-->
-                            <!--                                    <label for="amount">-->
-                            <!--                                        <input type="text" id="amount" placeholder="10" class="sdl-filter-input">-->
-                            <!--                                    </label>-->
-                            <!--                                    <button type="submit" class="sdl-form-group-btn"></button>-->
-                            <!--                                    <span class="sdl-form-group-label">Дней</span>-->
-                            <!--                                </div>-->
-                            <!--                            </div>-->
-                            <!--                        </form>-->
+                            <div class="sdl-filter-title">Срок займа</div>                            
                             <form class="sdl-checkbox-group" data-filter-group="checkbox" data-filter="loan_term" data-filter-type="range" data-filter-name="credit_time">
                                 <div class="sdl-filter-item">
                                     <label class="c-checkbox c-checkbox--link">
@@ -4330,8 +4320,11 @@
                 </div>
             </div>
         </div>
+         <!-- Сам фильтр END -->  
     </aside>
+    <!-- Затемнение заднего фона при открытии фильтра в адаптиве START -->   
     <div class="popup__overlay toggle-hidden"></div>
+    <!-- Затемнение заднего фона при открытии фильтра в адаптиве END -->  
 </div>
-</body>
+<script type="text/javascript" src="main.js"></script></body>
 </html>

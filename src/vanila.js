@@ -24,22 +24,64 @@ class _Sdl {
         );
         return new _Sdl(elements);
     }
-    checked(bool){
+    add(classname){
+        this.each( e => e.classList.add(classname) );
+        return this;
+    }
+    remove(classname){
+        this.each( e => e.classList.remove(classname) );
+        return this;
+    }
+    toggle(classname){
+        this.each( e => e.classList.toggle(classname) );
+        return this;
+    }
+    checked(bool) {
         this.elements.forEach(item => item.checked = bool);
         return this;
     }
+
     hide() {
-        this.elements.each(
+        this.each(
             element => element.style.display = 'none'
         );
         return this;
     }
 
     show() {
-        this.elements.each(
+        this.each(
             element => element.style.display = ''
         );
         return this;
+    }
+
+    animate(callback) {
+        this.each(
+            elem => animation({
+                timing:function(timeFraction) {
+                    return timeFraction;
+                },
+                draw: function(progress) {
+                    callback(progress, elem)
+                },
+                duration: 500
+            })
+        );
+
+        function animation({timing, draw, duration}) {
+            let start = performance.now();
+            requestAnimationFrame(function animate(time) {
+                let timeFraction = (time - start) / duration;
+                if (timeFraction > 1) timeFraction = 1;
+                let progress = timing(timeFraction);
+                draw(progress);
+                if (timeFraction < 1) {
+                    requestAnimationFrame(animate);
+                }
+
+            });
+        }
+
     }
 }
 
