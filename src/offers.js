@@ -18,7 +18,7 @@ window.__ll_offers = [
         "pos": 2,
         "day_offer": 0,
         "st": 1,
-        "tags": ['отказу-нет',],
+        "tags": ['киев',],
     },
     {
         "id": 6,

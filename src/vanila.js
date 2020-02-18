@@ -24,18 +24,22 @@ class _Sdl {
         );
         return new _Sdl(elements);
     }
-    add(classname){
-        this.each( e => e.classList.add(classname) );
+
+    add(classname) {
+        this.each(e => e.classList.add(classname));
         return this;
     }
-    remove(classname){
-        this.each( e => e.classList.remove(classname) );
+
+    remove(classname) {
+        this.each(e => e.classList.remove(classname));
         return this;
     }
-    toggle(classname){
-        this.each( e => e.classList.toggle(classname) );
+
+    toggle(classname) {
+        this.each(e => e.classList.toggle(classname));
         return this;
     }
+
     checked(bool) {
         this.elements.forEach(item => item.checked = bool);
         return this;
@@ -55,13 +59,21 @@ class _Sdl {
         return this;
     }
 
+    attr(name, value="") {
+        if (value === "") {
+            return this.elements[0].getAttribute(name);
+        }
+        this.elements[0].setAttribute(name, value);
+        return this;
+    }
+
     animate(callback) {
         this.each(
             elem => animation({
-                timing:function(timeFraction) {
+                timing: function (timeFraction) {
                     return timeFraction;
                 },
-                draw: function(progress) {
+                draw: function (progress) {
                     callback(progress, elem)
                 },
                 duration: 500

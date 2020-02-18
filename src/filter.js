@@ -105,7 +105,22 @@ window.addEventListener("load",
 function () {
 
 
-new Filter(window.__ll_offers, ".sdl-filter");
+const sdl__filter = new Filter(window.__ll_offers, ".sdl-filter");
+if (_S("[data-role='offers']").attr("data-tags")){
+    let tags = _S("[data-role='offers']").attr("data-tags");
+    const ch = _S(sdl__filter.checkbox.find("tags", tags));
+
+    ch.checked(true);
+    const e = {target: ch.elements[0]};
+    sdl__filter.update(sdl__filter.checkbox.update_value(e));
+}else if (_S("[data-role='offers']").attr("data-credit-first")){
+    const loan = _S("[data-role='offers']").attr("data-credit-first");
+    const ch = _S(sdl__filter.checkbox.find("credit_first", loan));
+    ch.checked(true);
+    const e = {target: ch.elements[0]};
+
+    sdl__filter.update(sdl__filter.checkbox.update_value(e));
+}
 
 const popup = document.querySelector(".popup__overlay");
 _S(".sdl-filter-btn").on('click', function (event) {
