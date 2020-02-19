@@ -122,21 +122,7 @@ if (_S("[data-role='offers']").attr("data-tags")){
     sdl__filter.update(sdl__filter.checkbox.update_value(e));
 }
 
-const popup = document.querySelector(".popup__overlay");
-_S(".sdl-filter-btn").on('click', function (event) {
-    _S(".sdl-filter-btn").add("toggle-left");
-   _S(".sdl-filter-container").remove("toggle-left");
-    popup.classList.remove("toggle-hidden");
 
-});
-
-popup.addEventListener("click", function(event) {
-    if (event.target == this) {
-        _S(".sdl-filter-btn").remove("toggle-left");
-        _S(".sdl-filter-container").add("toggle-left");
-        popup.classList.add("toggle-hidden");
-    }
-});
 
 let currentFocus;
 let inp = document.getElementById("company-name");

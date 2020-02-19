@@ -2,29 +2,34 @@
   &-filter {
 
     &-btn {
+      /*Внешний вид*/
       content: '';
-      top: 50%;
-      -webkit-transform: translateY(-50%);
-      transform: translateY(-50%);
       background-image: url("data:image/svg+xml,%3Csvg height='394pt' fill='#fff' viewBox='-5 0 394 394.00003' width='394pt' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m367.820312 0h-351.261718c-6.199219-.0117188-11.878906 3.449219-14.710938 8.960938-2.871094 5.585937-2.367187 12.3125 1.300782 17.414062l128.6875 181.285156c.042968.0625.089843.121094.132812.183594 4.675781 6.3125 7.207031 13.960938 7.21875 21.816406v147.800782c-.027344 4.375 1.691406 8.582031 4.773438 11.6875 3.085937 3.101562 7.28125 4.851562 11.65625 4.851562 2.222656-.003906 4.425781-.445312 6.480468-1.300781l72.3125-27.570313c6.476563-1.980468 10.777344-8.09375 10.777344-15.453125v-120.015625c.011719-7.855468 2.542969-15.503906 7.214844-21.816406.042968-.0625.089844-.121094.132812-.183594l128.691406-181.289062c3.667969-5.097656 4.171876-11.820313 1.300782-17.40625-2.828125-5.515625-8.511719-8.9765628-14.707032-8.964844zm0 0'/%3E%3C/svg%3E");
-      z-index: 9999;
       background-size: 20px 20px;
       background-position: center center;
       background-repeat: no-repeat;
-
       outline: none;
       border: none;
+      background-color: #f9ad30;
+      box-shadow: 0 2px 3px 0 rgba(0,0,0,.2);
+      border-radius: 0 20px 20px 0;
+      /*Внешний вид END*/
+
+      /*Расположение кнопки*/
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
       position: fixed;
       bottom: 20px;
       left: 0;
+      top: 50%;
+
+      z-index: 9999;
+      /*Расположение кнопки END*/
+
+      /*Размеры*/
       width: 47px;
       height: 40px;
-      background-color:
-              #f9ad30;
-      box-shadow: 0 2px 3px 0
-      rgba(0,0,0,.2);
-
-      border-radius: 0 20px 20px 0;
+      /*Размеры END*/
     }
 
     &-content {
@@ -54,27 +59,7 @@
     }
   }
 }
-@media (min-width: 768px) {
-  .sdl {
-    &-filter-btn {
-      display: none;
-    }
-  }
-}
 
-.popup__overlay {
-  position: fixed;
-  z-index: 555;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, .7);
-  text-align: center
-}
-.toggle-hidden {
-  display: none;
-}
 .sdl-autocomplite{
   position: relative;
   display: inline-block;
@@ -112,37 +97,19 @@
     will-change: min-height;
     border: solid 1px;
   }
-  .toggle-left {
-    transform: translateX(-100%);
-    position: relative;
+}
 
-  }
-  aside{
-    z-index: 777;
-  }
-}
-.sdl-filter-container {
-  width: 260px;
-  transition: 350ms;
-  z-index: 999;
-}
-.filter-aside{
-  z-index: 777;
-  position: fixed;
-  top: 0;
-  left: 0;
-
-}
 @media (min-width: 768px) {
   .filter-aside {
     position: relative;
     float: right;
     margin-top: 121px;
   }
-  aside{
+  aside {
     float: right;
   }
 }
+
 @media (min-width: 768px) {
   .sdl-filter-content {
     border-radius: 10px;

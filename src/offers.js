@@ -18,7 +18,7 @@ window.__ll_offers = [
         "pos": 2,
         "day_offer": 0,
         "st": 1,
-        "tags": ['киев',],
+        "tags": ['киев'],
     },
     {
         "id": 6,
@@ -53,7 +53,8 @@ window.__ll_offers = [
         "feature_text": "",
         "pos": 4,
         "day_offer": 0,
-        "st": 1
+        "st": 1,
+        "tags": ['киев'],
     },
     {
         "id": 10,
@@ -70,7 +71,8 @@ window.__ll_offers = [
         "feature_text": "",
         "pos": 9,
         "day_offer": 0,
-        "st": 1
+        "st": 1,
+        "tags": ['киев'],
     },
     {
         "id": 11,

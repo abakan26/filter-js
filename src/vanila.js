@@ -67,6 +67,13 @@ class _Sdl {
         return this;
     }
 
+    css(style, value=""){
+        this.each(
+            element => element.style[style] = value
+        );
+        return this;
+    }
+
     animate(callback) {
         this.each(
             elem => animation({
