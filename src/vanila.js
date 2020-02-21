@@ -45,16 +45,28 @@ class _Sdl {
         return this;
     }
 
-    hide() {
-        this.each(
-            element => element.style.display = 'none'
+    hide(duration = 300) {
+        this.animate(
+            function (progress, elem) {
+                let op = 1 - progress;
+                elem.style.opacity = op.toString();
+                if (progress === 1){
+                    elem.style.display = "none";
+                }
+
+            },
+            duration
         );
         return this;
     }
 
-    show() {
-        this.each(
-            element => element.style.display = ''
+    show(duration = 300) {
+        this.animate(
+            function (progress, elem) {
+                elem.style.display = "";
+                elem.style.opacity = progress.toString();
+            },
+            duration
         );
         return this;
     }
@@ -74,7 +86,7 @@ class _Sdl {
         return this;
     }
 
-    animate(callback) {
+    animate(callback, duration= 500) {
         this.each(
             elem => animation({
                 timing: function (timeFraction) {
@@ -83,7 +95,7 @@ class _Sdl {
                 draw: function (progress) {
                     callback(progress, elem)
                 },
-                duration: 500
+                duration: duration
             })
         );
 

@@ -1,0 +1,36 @@
+.sdl-to-top {
+  display: inline;
+  z-index: 99;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 33px;
+  height: 33px;
+  line-height: 33px;
+  //display: none;
+  color: #3c4858;
+  background-color: #ced4da;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-box-shadow: 0 0 3px rgba(60, 72, 88, 0.15);
+  box-shadow: 0 0 3px rgba(60, 72, 88, 0.15);
+  border-radius: 10px;
+  text-align: center;
+
+  &:hover, ::selection {
+    background-color: #4466d8;
+    transform: rotate(45deg);
+  }
+  &-img {
+    transition: all 0.5s ease;
+    fill: #000;
+    display: inline !important;
+    vertical-align: middle !important;
+  }
+
+
+}
+.sdl-to-top:hover .sdl-to-top-img{
+  fill: #fff;
+  transform: rotate(-45deg);
+}

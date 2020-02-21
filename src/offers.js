@@ -54,7 +54,7 @@ window.__ll_offers = [
         "pos": 4,
         "day_offer": 0,
         "st": 1,
-        "tags": ['киев'],
+        "tags": ['киев', 'на-карту'],
     },
     {
         "id": 10,
@@ -157,7 +157,8 @@ window.__ll_offers = [
         "feature_text": "",
         "pos": 16,
         "day_offer": 0,
-        "st": 1
+        "st": 1,
+        "tags":['без-залога']
     },
     {
         "id": 18,
@@ -412,7 +413,8 @@ window.__ll_offers = [
         "feature_text": "",
         "pos": 26,
         "day_offer": 0,
-        "st": 1
+        "st": 1,
+        "tags": ['киев', 'на-карту'],
     },
     {
         "id": 37,
@@ -514,7 +516,8 @@ window.__ll_offers = [
         "feature_text": "",
         "pos": 40,
         "day_offer": 0,
-        "st": 1
+        "st": 1,
+        "tags" : []
     },
     {
         "id": 43,
@@ -531,7 +534,8 @@ window.__ll_offers = [
         "feature_text": "",
         "pos": 33,
         "day_offer": 0,
-        "st": 1
+        "st": 1,
+        "tags" : ['на-карту']
     },
     {
         "id": 44,
