@@ -22,7 +22,8 @@ module.exports = {
         }
     },
     entry: {
-        main: "./src/main.js"
+        main: "./src/main.js",
+        scroll: "./src/scroll_top.js",
     },
 
     output: {
@@ -86,7 +87,8 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             filename: "index.html",
-            template: "./src/index.html"
+            template: "./src/index.html",
+            chunks: ['main', 'scroll']
         }),
         new MiniCssExtractPlugin({
             filename: '[name].css'

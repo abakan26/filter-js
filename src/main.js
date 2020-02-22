@@ -4,6 +4,3 @@ import "./filter";
 import "./checkbox";
 import "./popup";
 import "./seacrh";
-import "./to-top.scss";
-
-

@@ -7,7 +7,7 @@
   width: 33px;
   height: 33px;
   line-height: 33px;
-  //display: none;
+  opacity: 0;
   color: #3c4858;
   background-color: #ced4da;
   -webkit-transition: all 0.5s ease;
@@ -17,7 +17,7 @@
   border-radius: 10px;
   text-align: center;
 
-  &:hover, ::selection {
+  &:hover {
     background-color: #4466d8;
     transform: rotate(45deg);
   }
