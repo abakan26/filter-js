@@ -1,5 +1,5 @@
 .sdl-to-top {
-  display: inline;
+  //display: none;
   z-index: 99;
   position: fixed;
   bottom: 30px;
@@ -7,7 +7,6 @@
   width: 33px;
   height: 33px;
   line-height: 33px;
-  opacity: 0;
   color: #3c4858;
   background-color: #ced4da;
   -webkit-transition: all 0.5s ease;
