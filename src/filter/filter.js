@@ -1,5 +1,6 @@
-import {Checkbox} from "./checkbox";
-import {_S} from "./vanila";
+import {Checkbox} from "../chekbox/checkbox";
+import {_S} from "../vanila";
+import {Offer} from "../render/Offer";
 
 
 
@@ -8,73 +9,47 @@ window.addEventListener("load",
 function () {
 
     class Filter {
-        constructor(offers, filters) {
+        constructor(offers, filters, offerObj) {
 
             this.offers = offers;
+            this.offerObj = offerObj;
             this.update = this.update.bind(this);
             this.checkbox = new Checkbox(filters, this.update);
             this.check = this.check.bind(this);
+            this.last = 0;
+            this.step = 20;
 
         }
 
-        update(state) {
+        initial(){
+            if (_S("[data-role='offers']").attr("data-tags")){
+                let tags = _S("[data-role='offers']").attr("data-tags");
+                const ch = _S(this.checkbox.find("tags", tags));
+                ch.checked(true);
+                const e = {target: ch.elements[0]};
+                this.update(this.checkbox.update_value(e));
+
+            }else if (_S("[data-role='offers']").attr("data-credit-first")){
+                const loan = _S("[data-role='offers']").attr("data-credit-first");
+                const ch = _S(this.checkbox.find("credit_first", loan));
+                ch.checked(true);
+                const e = {target: ch.elements[0]};
+
+                this.update(this.checkbox.update_value(e));
+            }else {
+                this.offerObj.render();
+            }
+        }
+
+        update(state = sdl__filter.checkbox.state) {
 
             let valid_offers = this.offers.filter(offer => this.validate(offer, state));
             let in_valid_offers = this.offers.filter(offer => !this.validate(offer, state));
-            console.log("in_valid_offers", in_valid_offers)
-            in_valid_offers.forEach(
-                elem => {
-
-                    _S("#actual-list").find(`.offer[data-title='${elem.title}']`).animate(
-                    function (progress, elem) {
-                        let op = 1 - progress;
-                        elem.style.opacity = op.toString();
-                        if (progress === 1){
-                            elem.style.display = "none";
-                        }
-
-                    }
-                )
-
-                }
-            );
-            valid_offers.forEach(
-                elem => _S("#actual-list").find(`.offer[data-title='${elem.title}']`).animate(
-                    function (progress, elem) {
-
-                        elem.style.display = "";
-
-                        let op = progress;
-                        elem.style.opacity = op.toString();
-
-                    }
-                )
-            );
-            valid_offers.forEach(
-                elem => _S("#other-list").find(`.offer[data-title='${elem.title}']`).animate(
-                    function (progress, elem) {
-                        let op = 1 - progress;
-                        elem.style.opacity = op.toString();
-                        if (progress === 1){
-                            elem.style.display = "none";
-                        }
-
-                    }
-                )
-            );
-            in_valid_offers.forEach(
-                elem => _S("#other-list").find(`.offer[data-title='${elem.title}']`).animate(
-                    function (progress, elem) {
-
-                        elem.style.display = "";
-
-                        let op = progress;
-                        elem.style.opacity = op.toString();
-
-                    }
-                )
-            );
-
+            this.offerObj.change(valid_offers, in_valid_offers);
+            // this.hide("#actual-list", in_valid_offers);
+            // this.show("#actual-list", valid_offers);
+            // this.hide("#other-list", valid_offers);
+            // this.show("#other-list", in_valid_offers);
         }
 
         check(offer, filter) {
@@ -110,21 +85,57 @@ function () {
             }
             return valid;
         }
-    }
-    const sdl__filter = new Filter(window.__ll_offers, ".sdl-filter");
-    if (_S("[data-role='offers']").attr("data-tags")){
-        let tags = _S("[data-role='offers']").attr("data-tags");
-        const ch = _S(sdl__filter.checkbox.find("tags", tags));
 
-        ch.checked(true);
-        const e = {target: ch.elements[0]};
-        sdl__filter.update(sdl__filter.checkbox.update_value(e));
-    }else if (_S("[data-role='offers']").attr("data-credit-first")){
-        const loan = _S("[data-role='offers']").attr("data-credit-first");
-        const ch = _S(sdl__filter.checkbox.find("credit_first", loan));
-        ch.checked(true);
-        const e = {target: ch.elements[0]};
+        show(list, offers){
+            offers.forEach(function (elem) {
+                _S(list).find(`.offer[data-title='${elem.title}']`)
+                    .animate(fade_in)
+            });
+        }
 
-        sdl__filter.update(sdl__filter.checkbox.update_value(e));
+        hide(list, offers){
+            offers.forEach(function (elem) {
+                _S(list).find(`.offer[data-title='${elem.title}']`)
+                    .animate(fade_out)
+            });
+        }
     }
+
+    function fade_in(progress, element) {
+        element.style.display = "";
+        element.style.opacity = progress.toString();
+    }
+    function fade_out(progress, element) {
+        let op = 1 - progress;
+        element.style.opacity = op.toString();
+        if (progress === 1){
+            element.style.display = "none";
+        }
+    }
+
+    const of = new Offer({
+        offers: window.__ll_offers,
+        template: document.querySelector("[data-part='article']")
+    });
+
+
+    const sdl__filter = new Filter(window.__ll_offers, ".sdl-filter", of);
+    sdl__filter.initial();
+
+
+    document.getElementById("search-title").addEventListener("click", function (e) {
+       const inp = document.getElementById("company-name");
+        if (inp.value ){
+            let v = window.__ll_offers.filter(
+                r => inp.value === r.title
+            );
+            let iv = window.__ll_offers.filter(
+                r => inp.value !== r.title
+            );
+            of.change(v, []);
+        }else {
+            sdl__filter.update()
+        }
+
+    });
 });

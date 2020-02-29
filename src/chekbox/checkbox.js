@@ -1,4 +1,4 @@
-import {_S} from "./vanila";
+import {_S} from "../vanila";
 
 export class Checkbox {
     constructor(filter_groups, callback) {

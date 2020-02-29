@@ -1,6 +1,7 @@
-@import "filter";
-@import "checkbox";
-@import "input";
+@import "../filter/filter";
+@import "../chekbox/checkbox";
+@import "../filter/input";
 @import "correct";
-@import "popup";
-//@import "another";
+@import "../popup/popup";
+@import "another";
+@import "inner-page.css";

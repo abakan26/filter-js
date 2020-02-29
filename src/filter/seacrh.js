@@ -1,4 +1,4 @@
-import {_S} from "./vanila";
+import {_S} from "../vanila";
 
 window.addEventListener("load",
     function () {
@@ -76,23 +76,6 @@ window.addEventListener("load",
                 }
             }
         });
-        document.getElementById("search-title").addEventListener("click", function (e) {
-            if (inp.value ){
-                let v = window.__ll_offers.filter(
-                    r => inp.value === r.title
-                );
-                let iv = window.__ll_offers.filter(
-                    r => inp.value !== r.title
-                );
-                _S("#actual-list").find(".offer").show();
-                iv.forEach(
-                    elem =>{_S("#actual-list").find(`.offer[data-title='${elem.title}']`).hide();
-                    }
-                );
-            }else {
-                _S("#actual-list").find(".offer").show();
-            }
 
-        });
 
     });

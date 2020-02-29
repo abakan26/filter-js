@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const fs = require('fs');
 const argv = require('yargs').argv;
 const isDevelopment = argv.mode === 'development';
 const isProduction = !isDevelopment;
@@ -23,7 +22,8 @@ module.exports = {
     },
     entry: {
         main: "./src/main.js",
-        scroll: "./src/scroll_top.js",
+        scroll: "./src/scroll-top/scroll_top.js",
+        calculator: "./src/calculator/index.js",
     },
 
     output: {
@@ -88,7 +88,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: "index.html",
             template: "./src/index.html",
-            chunks: ['main', 'scroll']
+            chunks: ['main', 'scroll', 'calculator']
         }),
         new MiniCssExtractPlugin({
             filename: '[name].css'

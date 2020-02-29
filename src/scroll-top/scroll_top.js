@@ -1,4 +1,4 @@
-import {_S} from "./vanila";
+import {_S} from "../vanila";
 import "./to-top.scss";
 
 window.addEventListener("load",

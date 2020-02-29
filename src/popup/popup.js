@@ -1,4 +1,4 @@
-import {_S} from "./vanila";
+import {_S} from "../vanila";
 
 const popup = _S(".popup__overlay");
 const popup_btn = _S(".popup__btn");
