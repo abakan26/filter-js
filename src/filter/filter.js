@@ -44,7 +44,12 @@ function () {
         update(state = sdl__filter.checkbox.state) {
             let valid_offers = this.offers.filter(offer => this.validate(offer, state));
             let in_valid_offers = this.offers.filter(offer => !this.validate(offer, state));
-            this.offerObj.change(valid_offers, in_valid_offers);
+            if (!valid_offers.length){
+                this.offerObj.change(this.offers, []);
+            }else {
+                this.offerObj.change(valid_offers, in_valid_offers);
+            }
+
         }
 
         check(offer, filter) {

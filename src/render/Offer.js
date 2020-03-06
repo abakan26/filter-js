@@ -128,6 +128,7 @@ export class Offer {
 
     render() {
         const that = this;
+
         if (this.get_actual_offer_left()){
 
             let current = this.nextOffer;
@@ -137,7 +138,6 @@ export class Offer {
             this.draw("actual", nextOffers);
 
             if (this.other_offers.length){
-
                 document.querySelector("h4.unavailable").style.display = "";
                 this.draw("other", this.other_offers);
             }else {
@@ -153,6 +153,7 @@ export class Offer {
 
             return true;
         }
+
         return false
     }
 

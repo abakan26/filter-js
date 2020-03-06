@@ -8,7 +8,6 @@ window.addEventListener("load", function () {
     const default_amount = params.get("amount")
         ? Number(params.get("amount"))
         : 500;
-        console.log(default_amount);
     const amount = new CalculatorController({
         container: "amount",
         offer: window.__ll_offers,
