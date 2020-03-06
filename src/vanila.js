@@ -93,7 +93,21 @@ class _Sdl {
                     return timeFraction;
                 },
                 draw: function (progress) {
-                    callback(progress, elem)
+                    switch (callback) {
+                        case "fade_in":
+                            fade_in(progress, elem);
+                            console.log("a");
+                            break;
+                        case "fade_out":
+                            fade_out(progress, elem);
+                            console.log("b");
+                            break;
+                        default:
+                            callback(progress, elem);
+                            console.log("c");
+                            break;
+                    }
+
                 },
                 duration: duration
             })
@@ -111,6 +125,17 @@ class _Sdl {
                 }
 
             });
+        }
+        function fade_in(progress, element) {
+            element.style.display = "";
+            element.style.opacity = progress.toString();
+        }
+        function fade_out(progress, element) {
+            let op = 1 - progress;
+            element.style.opacity = op.toString();
+            if (progress === 1){
+                element.style.display = "none";
+            }
         }
 
     }

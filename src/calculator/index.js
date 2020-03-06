@@ -3,6 +3,12 @@ import "./calculator-logics";
 import {calculate, CalculatorController} from "./calculator-logics";
 
 window.addEventListener("load", function () {
+
+    const params = new URLSearchParams(location.search);
+    const default_amount = params.get("amount")
+        ? Number(params.get("amount"))
+        : 500;
+        console.log(default_amount);
     const amount = new CalculatorController({
         container: "amount",
         offer: window.__ll_offers,
@@ -10,7 +16,7 @@ window.addEventListener("load", function () {
             min: 250,
             max: 10000,
             step: 250,
-            default: 500,
+            default: default_amount,
         }
     }, calculator_handler);
     const term = new CalculatorController({

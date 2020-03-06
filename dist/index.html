@@ -7,7 +7,7 @@
 <link href="main.css" rel="stylesheet"><link href="scroll.css" rel="stylesheet"></head>
 <body>
 <div class="container">
-    <main data-role="offers" data-tags="" data-credit-first="100">
+    <main data-role="offers" data-tags="" data-credit-first="300">
         <template data-part="article">
             <article class="offer">
                 <div class="offer_logo">
@@ -100,7 +100,7 @@
             </article>
         </template>
         <section id="actual-list"></section>
-        <button id="get_more">Загрузить еще</button>
+        <div id="get_more" class="unavailable" style="cursor: pointer;">Загрузить еще</div>
         <h4 class="offers-container-title unavailable">
             Результаты, не соответствующие условиям первого кредита
         </h4>

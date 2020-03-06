@@ -1,3 +1,5 @@
+import {_S} from "../vanila";
+
 export class Offer {
     constructor(props) {
         this.supportWebP = false;
@@ -125,8 +127,9 @@ export class Offer {
     }
 
     render() {
-
+        const that = this;
         if (this.get_actual_offer_left()){
+
             let current = this.nextOffer;
             this.nextOffer += this.next_step();
             let last = this.nextOffer;
@@ -135,20 +138,23 @@ export class Offer {
 
             if (this.other_offers.length){
 
-                document.querySelector(".unavailable").style.display = "";
+                document.querySelector("h4.unavailable").style.display = "";
                 this.draw("other", this.other_offers);
             }else {
-                document.querySelector(".unavailable").style.display = "none"
+                document.querySelector("h4.unavailable").style.display = "none"
             }
             if(!this.get_actual_offer_left()){
                 this.btn_more.style.display = "none"
             }
+
             lazyload(document.querySelectorAll('[data-logo]'));
             let event = new Event("renderof", {bubbles: false, cancelable: false});
             window.dispatchEvent(event);
+
             return true;
         }
         return false
     }
 
 }
+

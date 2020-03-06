@@ -42,14 +42,9 @@ function () {
         }
 
         update(state = sdl__filter.checkbox.state) {
-
             let valid_offers = this.offers.filter(offer => this.validate(offer, state));
             let in_valid_offers = this.offers.filter(offer => !this.validate(offer, state));
             this.offerObj.change(valid_offers, in_valid_offers);
-            // this.hide("#actual-list", in_valid_offers);
-            // this.show("#actual-list", valid_offers);
-            // this.hide("#other-list", valid_offers);
-            // this.show("#other-list", in_valid_offers);
         }
 
         check(offer, filter) {
@@ -86,32 +81,10 @@ function () {
             return valid;
         }
 
-        show(list, offers){
-            offers.forEach(function (elem) {
-                _S(list).find(`.offer[data-title='${elem.title}']`)
-                    .animate(fade_in)
-            });
-        }
 
-        hide(list, offers){
-            offers.forEach(function (elem) {
-                _S(list).find(`.offer[data-title='${elem.title}']`)
-                    .animate(fade_out)
-            });
-        }
     }
 
-    function fade_in(progress, element) {
-        element.style.display = "";
-        element.style.opacity = progress.toString();
-    }
-    function fade_out(progress, element) {
-        let op = 1 - progress;
-        element.style.opacity = op.toString();
-        if (progress === 1){
-            element.style.display = "none";
-        }
-    }
+
 
     const of = new Offer({
         offers: window.__ll_offers,
